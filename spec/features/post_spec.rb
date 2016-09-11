@@ -16,10 +16,10 @@ describe 'navigate' do
     end
 
     it 'has a list of posts' do 
-      Post.create(date: Date.today, rationale: "Post1", user_id: @user.id)
-      Post.create(date: Date.today, rationale: "Post2", user_id: @user.id)
+      post1 = FactoryGirl.build_stubbed(:post)
+      post2 = FactoryGirl.build_stubbed(:second_post)
       visit posts_path
-      expect(page).to have_content(/Post1|Post2/)
+      expect(page).to have_content(/Rationale|Content/)
     end
 
   end
