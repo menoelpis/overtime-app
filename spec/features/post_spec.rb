@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe 'navigate' do
   before do
-    user = FactoryGirl.create(:user)
-    login_as(user, :scope => :user)
+    @user = FactoryGirl.create(:user)
+    login_as(@user, :scope => :user)
   end
 
   describe 'index' do
@@ -15,12 +15,12 @@ describe 'navigate' do
       expect(page.status_code).to eq(200)
     end
 
-    # it 'has a list of posts' do 
-    #   Post.create(date: Date.today, rationale: "Post1")
-    #   Post.create(date: Date.today, rationale: "Post2")
-    #   visit posts_path
-    #   expect(page).to have_content(/Post1|Post2/)
-    # end
+    it 'has a list of posts' do 
+      Post.create(date: Date.today, rationale: "Post1", user_id: @user.id)
+      Post.create(date: Date.today, rationale: "Post2", user_id: @user.id)
+      visit posts_path
+      expect(page).to have_content(/Post1|Post2/)
+    end
 
   end
 
