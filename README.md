@@ -10,8 +10,8 @@
 ## Features:
 - Approval Workflow
 - SMS Sending -> link to approval or overtime input
-- Administrate admin dashboard
-- Block non admin adn guest users
+- x Administrate admin dashboard
+- x Block non admin adn guest users
 - Email summary to managers for approval
 - Need to be documented if employee did not log overtime
 
